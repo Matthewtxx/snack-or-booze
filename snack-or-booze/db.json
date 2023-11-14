@@ -27,6 +27,11 @@
       "description": "Crisp!",
       "recipe": "Open can.",
       "serve": "Immediately."
+    },
+    {
+      "name": "sprite",
+      "description": "lemon lime",
+      "id": "iFse8qT"
     }
   ],
   "snacks": [
@@ -50,6 +55,11 @@
       "description": "Tart and delicious.",
       "recipe": "Mix arugula, toasted walnuts, and thinly-sliced Parmesan cheese. Dress with lemon and olive oil.",
       "serve": "Place on tiny, precious little plates."
+    },
+    {
+      "name": "cheetos",
+      "description": "cheese puffs",
+      "id": "hpqBg3R"
     }
   ]
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card, CardBody, CardTitle, Form, FormGroup, Label, Input, Button, Col, Container, Row } from 'reactstrap';
 import SnackOrBoozeApi from '../Api';
+import AddItemApi from '../components/AddItem';
 import '../styles/AddMenuItemForm.css';
 
 function AddMenuItemForm() {
@@ -13,22 +14,15 @@ function AddMenuItemForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate input fields if needed
-
-    // Create a new item object
     const newItem = {
       name,
       description,
       // Add more properties based on your data structure
     };
 
-    // Add the new item to the appropriate list (snacks or drinks)
     try {
-      if (type === 'snacks') {
-        await SnackOrBoozeApi.addSnack(newItem);
-      } else if (type === 'drinks') {
-        await SnackOrBoozeApi.addDrink(newItem);
-      }
+      // Use AddItemApi to add the item
+      const addedItem = await AddItemApi.addItem(newItem, type);
 
       // Redirect to the appropriate menu page after adding the item
       history.push(`/${type}`);

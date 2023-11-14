@@ -5,7 +5,7 @@ import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 const FoodItem = ({ items, type, cantFind }) => {
   const { id } = useParams();
 
-  const item = items.find(item => item.id === id);
+  const item = items.find(item => String(item.id) === String(id));
 
   if (!item) return <Redirect to={cantFind} />;
 
@@ -17,15 +17,16 @@ const FoodItem = ({ items, type, cantFind }) => {
             {item.name}
           </CardTitle>
           <CardText className="font-italic">{item.description}</CardText>
-          {type === 'snacks' && (
-            <>
-              <p>
-                <b>Recipe:</b> {item.recipe}
-              </p>
-              <p>
-                <b>Serve:</b> {item.serve}
-              </p>
-            </>
+          {type === 'snacks' && item.recipe && (
+            <p>
+              <b>Recipe:</b> {item.recipe}
+            </p>
+          )}
+
+          {type === 'snacks' && item.serve && (
+            <p>
+              <b>Serve:</b> {item.serve}
+            </p>
           )}
         </CardBody>
       </Card>
